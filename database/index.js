@@ -17,7 +17,7 @@ const pgp = require('pg-promise')(initOptions);
 const cn = {
   host: 'ec2-54-145-32-83.compute-1.amazonaws.com',
   user: 'power_user',
-  password: '$nopass',
+  password: '',
   database: 'robinhood',
 };
 

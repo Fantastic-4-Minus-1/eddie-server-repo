@@ -17,9 +17,12 @@ app.set('PORT', process.env.PORT || 3000);
 app.use('/:companyAbbr', express.static('public'));
 
 app.get('/api/people-also-bought/:companyAbbr', cache, (req, res) => {
-  const loadBalancerURL = 'http://localhost:7878';
+  const loadBalancerURL = '';
   return axios.get(loadBalancerURL + req.url)
-    .then(({ data }) => res.send(data))
+    .then(({ data }) => {
+      save(data);
+      res.send(data);
+    })
     .catch(error => res.status('400').send(error));
 });
 
