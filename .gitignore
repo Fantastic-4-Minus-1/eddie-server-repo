@@ -27,5 +27,3 @@ public/bundle.js
 # Generated Seeds
 seeds/
 dataGeneration/seed_*.js
-
-/newrelic.js
