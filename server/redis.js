@@ -1,4 +1,4 @@
-require('newrelic');
+// require('newrelic');
 
 const express = require('express');
 const parser = require('body-parser');
@@ -25,16 +25,18 @@ let index = 0;
 
 app.use('/', cache ,(req, res, next) => {
   if (req.method === 'GET') {
+    index = (index + 1) % url.length;
     return axios.get(url[index] + req.url)
       .then(({ data }) => {
+        console.log('SEND')
         save(path.basename(req.url), JSON.stringify(data));
-        res.send(data);
+        res.json(data);
       })
       .catch(error => res.status('400').send(error));
   } else {
+    index = (index + 1) % url.length;
     next();
   }
-  index = (index + 1) % url.length;
 }, proxy(url[index]));
 
 app.listen(app.get('PORT'), () => {
