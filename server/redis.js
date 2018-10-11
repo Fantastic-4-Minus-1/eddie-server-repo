@@ -20,7 +20,7 @@ app.use('/:companyAbbr', express.static('public'));
 const url = ['http://ec2-107-22-16-227.compute-1.amazonaws.com'];
 let index = 0;
 
-app.use('/', (req, res, next) => {
+app.use('/', cache ,(req, res, next) => {
   if (req.method === 'GET') {
     return axios.get(url[index] + req.url)
       .then(({ data }) => {

@@ -10,8 +10,7 @@ const save = (key, value) => {
 const cache = (req, res, next) => {
   client.get(path.basename(req.url), (error, data) => {
     if (error) { res.status('401').send(error); }
-    if (data !== null) {
-      save(req.params.companyAbbr, JSON.stringify(data));
+    if (data !== null && req.method === 'GET') {
       res.send(data);
     } else {
       next();
