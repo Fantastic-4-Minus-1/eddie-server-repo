@@ -9,7 +9,7 @@ const app = express();
 app.use(compression());
 app.use(parser.json());
 
-app.set('PORT', process.env.PORT || 3000);
+app.set('PORT', process.env.PORT || 3001);
 
 app.use('/:companyAbbr', express.static('public'));
 

@@ -19,9 +19,6 @@
   },
   "homepage": "https://github.com/RobinHackers/people-also-bought/blob/master/README.md",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.4",
-    "@fortawesome/free-solid-svg-icons": "^5.3.1",
-    "@fortawesome/react-fontawesome": "^0.1.3",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
@@ -30,6 +27,7 @@
     "pg-promise": "^8.4.6"
   },
   "devDependencies": {
+    "express-http-proxy": "^1.4.0",
     "axios": "^0.18.0",
     "newrelic": "^4.9.0",
     "redis": "^2.8.0"
