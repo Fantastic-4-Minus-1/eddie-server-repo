@@ -17,9 +17,12 @@ app.set('PORT', process.env.PORT || 3000);
 
 app.use('/:companyAbbr', express.static('public'));
 
+// const url = [
+//   'http://ec2-54-204-237-195.compute-1.amazonaws.com',
+//   'http://ec2-34-239-45-224.compute-1.amazonaws.com',
+// ];
 const url = [
-  'http://ec2-54-204-237-195.compute-1.amazonaws.com',
-  'http://ec2-34-239-45-224.compute-1.amazonaws.com',
+  'http://localhost:3001'
 ];
 let index = 0;
 

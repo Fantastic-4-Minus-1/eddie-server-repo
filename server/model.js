@@ -25,7 +25,8 @@ const model = {
               .slice(numOfPricePerEntry * i, numOfPricePerEntry * (i + 1));
           }
           return companies;
-        });
+        })
+        .catch(error => console.log(error.stack));
     },
   },
   company: {
