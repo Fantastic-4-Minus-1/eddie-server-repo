@@ -2,7 +2,7 @@ const model = require('./model');
 
 const controller = {
   peopleAlsoBought: {
-    get: (req, res) => model.peopleAlsoBought.get(req.params.companyAbbr)
+    get: (req, res) => model.peopleAlsoBought.get(req.params.abbrOrId)
       .then(data => res.json(data))
       .catch(error => res.status('400').send(error.stack)),
   },

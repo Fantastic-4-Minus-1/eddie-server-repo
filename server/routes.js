@@ -2,7 +2,7 @@ const router = require('express').Router();
 const controller = require('./controller');
 
 
-router.route('/people-also-bought/:companyAbbr')
+router.route('/people-also-bought/:abbrOrId')
   .get(controller.peopleAlsoBought.get);
 
 router.route('/company')
