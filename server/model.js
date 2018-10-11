@@ -6,7 +6,7 @@ const model = {
       const getAlsoBought = isNaN(abbrevationOrId)
         ? 'getAlsoBoughtByAbbreviation'
         : 'getAlsoBoughtById';
-      return queries[getAlsoBought](abbrevationOrId)
+      queries[getAlsoBought](abbrevationOrId)
         .then((data) => {
           const numOfPricePerEntry = data.length / 12;
           const companies = data
@@ -26,7 +26,6 @@ const model = {
           }
           return companies;
         })
-        .catch(error => console.log(error.stack));
     },
   },
   company: {

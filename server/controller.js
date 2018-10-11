@@ -3,12 +3,12 @@ const model = require('./model');
 const controller = {
   peopleAlsoBought: {
     get: (req, res) => model.peopleAlsoBought.get(req.params.abbrOrId)
-      .then(data => res.json(data))
+      .then(data => res.send(data))
       .catch(error => res.status('400').send(error.stack)),
   },
   company: {
     get: (req, res) => model.company.get(req.params.companyAbbr)
-      .then(data => res.json(data))
+      .then(data => res.send(data))
       .catch(error => res.status('400').send(error.stack)),
     post: (req, res) => model.company.post(req.body)
       .then(() => res.send())
