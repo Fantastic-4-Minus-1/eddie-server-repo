@@ -3,7 +3,6 @@ const path = require('path');
 const model = require('../server/model');
 
 const client = redis.createClient(process.env.REDIS_PORT || 6379);
-const db = '';
 
 const save = (key, value) => {
   client.setex(key, 5, value);
@@ -16,7 +15,7 @@ const cache = (req, res, next) => {
       res.send(data);
       model.peopleAlsoBought.get(req.params.abbrOrId)
         .then(data => save(path.basename(req.url), data))
-        .catch(err => res.status('401').send(err));
+        .catch(err => console.log(err.stack));
     } else {
       next();
     }
