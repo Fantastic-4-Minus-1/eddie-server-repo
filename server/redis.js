@@ -18,7 +18,7 @@ app.set('PORT', process.env.PORT || 3000);
 app.use('/:companyAbbr', express.static('public'));
 
 const url = [
-  'http://ec2-107-22-16-227.compute-1.amazonaws.com',
+  'http://ec2-54-204-237-195.compute-1.amazonaws.com',
   'http://ec2-34-239-45-224.compute-1.amazonaws.com',
 ];
 let index = 0;
@@ -28,7 +28,6 @@ app.use('/', cache ,(req, res, next) => {
     index = (index + 1) % url.length;
     return axios.get(url[index] + req.url)
       .then(({ data }) => {
-        console.log('SEND')
         save(path.basename(req.url), JSON.stringify(data));
         res.json(data);
       })
