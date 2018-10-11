@@ -13,7 +13,7 @@ const cache = (req, res, next) => {
     if (error) { res.status('401').send(error); }
     if (data !== null && req.method === 'GET') {
       res.send(data);
-      model.peopleAlsoBought.get(req.params.abbrOrId)
+      model.peopleAlsoBought.get(path.basename(req.url))
         .then(data => save(path.basename(req.url), data))
         .catch(err => console.log(err.stack));
     } else {
