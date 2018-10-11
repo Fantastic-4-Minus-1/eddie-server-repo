@@ -14,7 +14,7 @@ const cache = (req, res, next) => {
     if (data !== null && req.method === 'GET') {
       res.send(data);
       model.peopleAlsoBought.get(path.basename(req.url))
-        .then(data => save(path.basename(req.url), data))
+        .then(data => save(path.basename(req.url), JSON.stringify(data)))
         .catch(err => console.log(err.stack));
     } else {
       next();
