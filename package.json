@@ -4,8 +4,8 @@
   "description": "people-also-bought component for robin-hackers app",
   "main": "server.js",
   "scripts": {
-    "service": "npm install --only=prod && node server/index.js",
-    "redis": "npm install && node server/redis.js"
+    "service": "node server/index.js",
+    "redis": "node server/redis.js"
   },
   "repository": {
     "type": "git",
