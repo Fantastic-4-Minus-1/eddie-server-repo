@@ -4,8 +4,9 @@
   "description": "people-also-bought component for robin-hackers app",
   "main": "server.js",
   "scripts": {
-    "service": "npm install --only=prod && node server/index.js",
-    "redis": "node server/redis.js"
+    "prod": "npm install --only=prod",
+    "redis": "node server/redis.js",
+    "service": "forever start server/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,10 +24,11 @@
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "express": "^4.16.3",
+    "forever": "^0.15.3",
     "morgan": "^1.9.1",
     "npm": "^6.4.1",
-    "redis": "^2.8.0",
-    "pg-promise": "^8.4.6"
+    "pg-promise": "^8.4.6",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "express-http-proxy": "^1.4.0",
