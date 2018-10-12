@@ -6,7 +6,7 @@
   "scripts": {
     "prod": "npm install --only=prod",
     "redis": "node server/redis.js",
-    "service": "forever start server/index.js"
+    "service": "node server/index.js"
   },
   "repository": {
     "type": "git",
