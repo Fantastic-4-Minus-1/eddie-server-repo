@@ -2,7 +2,7 @@ const queries = require('../database');
 
 const model = {
   peopleAlsoBought: {
-    get: abbrevationOrId => {
+    get: (abbrevationOrId) => {
       const getAlsoBought = isNaN(abbrevationOrId)
         ? 'getAlsoBoughtByAbbreviation'
         : 'getAlsoBoughtById';
@@ -25,7 +25,7 @@ const model = {
               .slice(numOfPricePerEntry * i, numOfPricePerEntry * (i + 1));
           }
           return companies;
-        })
+        });
     },
   },
   company: {
