@@ -15,9 +15,9 @@ const initOptions = {
 const pgp = require('pg-promise')(initOptions);
 
 const cn = {
-  host: 'ec2-54-145-32-83.compute-1.amazonaws.com',
+  host: 'ec2-54-183-129-137.us-west-1.compute.amazonaws.com',
   user: 'power_user',
-  password: '',
+  password: '$poweruserpassword',
   database: 'robinhood',
 };
 
@@ -32,10 +32,10 @@ const queries = {
       INNER JOIN prices ON alsobought.alsobought_id = prices.company_id;`,
   ),
   getAlsoBoughtById: companyId => db.any(
-    `SELECT companies.*, prices.current_price FROM companies, alsobought, prices
-      WHERE alsobought.company_id = ${companyId}
+    `SELECT companies.*, prices.current_price FROM companies
+      INNER JOIN alsobought ON alsobought.company_id = ${companyId}
       AND companies.id = alsobought.alsobought_id
-      AND companies.id = prices.company_id;`,
+      INNER JOIN prices ON companies.id = prices.company_id;`,
   ),
   getCompanyByAbbreviation: companyAbbreviation => db.any(
     `SELECT companies.*, alsobought.alsobought_id, prices.current_price
